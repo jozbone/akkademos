@@ -20,26 +20,26 @@ namespace SwitchableBehaviors.Actors
         {
             Receive<PlayMovieMessage>(message => ColorConsole.WriteLineRed("Error: cannot start playing a movie before stopping existing one."));
             Receive<StopMovieMessage>(message => StopPlayingCurrentMovie());
-            ColorConsole.WriteLineCyan("UserActor is now in playing state.");
+            ColorConsole.WriteLineCyan($"UserActor is now in playing state. [Playing: {_currentlyWatching}].");
         }
 
         private void Stopped()
         {
             Receive<PlayMovieMessage>(message => StartPlayingMovie(message.MovieTitle));
-            Receive<StopMovieMessage>(message => ColorConsole.WriteLineRed("Error: cannot stop if nothing is playing"));
-            ColorConsole.WriteLineCyan("UserActor has now become Stopped");
+            Receive<StopMovieMessage>(message => ColorConsole.WriteLineRed("Error: cannot stop if nothing is playing."));
+            ColorConsole.WriteLineCyan("UserActor has now become Stopped.");
         }
 
         private void StartPlayingMovie(string title)
         {
             _currentlyWatching = title;
-            ColorConsole.WriteLineYellow($"User is currently watching '{_currentlyWatching}'");
+            ColorConsole.WriteLineYellow($"User is currently watching '{_currentlyWatching}'.");
             Become(Playing);
         }
 
         private void StopPlayingCurrentMovie()
         {
-            ColorConsole.WriteLineYellow($"User has stopped watching '{_currentlyWatching}'");
+            ColorConsole.WriteLineYellow($"User has stopped watching '{_currentlyWatching}'.");
             _currentlyWatching = null;
             Become(Stopped);
         }
