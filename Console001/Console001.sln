@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console001", "Console001\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifecycleEventsConsole", "LifecycleEventsConsole\LifecycleEventsConsole.csproj", "{0311D4D2-90C2-4C48-9143-BF4432785E6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwitchableBehaviors", "SwitchableBehaviors\SwitchableBehaviors.csproj", "{C11DB47A-22B8-4FCC-B140-3ED2188B7486}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwitchableBehaviors_After", "SwitchableBehaviors\SwitchableBehaviors_After.csproj", "{C11DB47A-22B8-4FCC-B140-3ED2188B7486}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwtichableBehaviors_Before", "SwtichableBehaviors_Before\SwtichableBehaviors_Before.csproj", "{39D631AF-D802-4A59-929C-BA09E90E0875}"
 EndProject

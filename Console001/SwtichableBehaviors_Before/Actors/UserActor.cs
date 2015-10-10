@@ -53,23 +53,23 @@ namespace SwtichableBehaviors_Before.Actors
 
         protected override void PreStart()
         {
-            ColorConsole.WriteLineGreen("PlaybackActor PreStart");
+            ColorConsole.WriteLineGreen("UserActor PreStart");
         }
 
         protected override void PostStop()
         {
-            ColorConsole.WriteLineGreen("PlaybackActor PostStop");
+            ColorConsole.WriteLineGreen("UserActor PostStop");
         }
 
         protected override void PreRestart(Exception reason, object message)
         {
-            ColorConsole.WriteLineGreen($"PlaybackActor PreRestart [reason:{reason}]");
+            ColorConsole.WriteLineGreen($"UserActor PreRestart [reason:{reason}]");
             base.PreRestart(reason, message);
         }
 
         protected override void PostRestart(Exception reason)
         {
-            ColorConsole.WriteLineGreen($"PlaybackActor PostRestart [reason:{reason}]");
+            ColorConsole.WriteLineGreen($"UserActor PostRestart [reason:{reason}]");
             base.PostRestart(reason);
         }
     }

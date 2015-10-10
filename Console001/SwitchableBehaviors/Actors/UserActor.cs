@@ -12,44 +12,36 @@ namespace SwitchableBehaviors.Actors
         public UserActor()
         {
             Console.WriteLine("Creating a UserActor");
-            Receive<PlayMovieMessage>(message => HandlePlayMovieMessage(message));
-            Receive<StopMovieMessage>(message => HandleStopMovieMessage());
+            ColorConsole.WriteLineCyan("Setting initial behavior to stopped.");
+            Stopped();
         }
 
-        private void HandlePlayMovieMessage(PlayMovieMessage message)
+        private void Playing()
         {
-            if (_currentlyWatching != null)
-            {
-                ColorConsole.WriteLineRed("Error: cannot start playing another movie before stopping existing one");
-            }
-            else
-            {
-                StartPlayingMovie(message.MovieTitle);
-            }
+            Receive<PlayMovieMessage>(message => ColorConsole.WriteLineRed("Error: cannot start playing a movie before stopping existing one."));
+            Receive<StopMovieMessage>(message => StopPlayingCurrentMovie());
+            ColorConsole.WriteLineCyan("UserActor is now in playing state.");
+        }
+
+        private void Stopped()
+        {
+            Receive<PlayMovieMessage>(message => StartPlayingMovie(message.MovieTitle));
+            Receive<StopMovieMessage>(message => ColorConsole.WriteLineRed("Error: cannot stop if nothing is playing"));
+            ColorConsole.WriteLineCyan("UserActor has now become Stopped");
         }
 
         private void StartPlayingMovie(string title)
         {
             _currentlyWatching = title;
             ColorConsole.WriteLineYellow($"User is currently watching '{_currentlyWatching}'");
-        }
-
-        private void HandleStopMovieMessage()
-        {
-            if (_currentlyWatching == null)
-            {
-                ColorConsole.WriteLineRed("Error: cannot stop if nothing is playing");
-            }
-            else
-            {
-                StopPlayingCurrentMovie();
-            }
+            Become(Playing);
         }
 
         private void StopPlayingCurrentMovie()
         {
             ColorConsole.WriteLineYellow($"User has stopped watching '{_currentlyWatching}'");
             _currentlyWatching = null;
+            Become(Stopped);
         }
 
         protected override void PreStart()
@@ -59,19 +51,20 @@ namespace SwitchableBehaviors.Actors
 
         protected override void PostStop()
         {
-            ColorConsole.WriteLineGreen("PlaybackActor PostStop");
+            ColorConsole.WriteLineGreen("UserActor PostStop");
         }
 
         protected override void PreRestart(Exception reason, object message)
         {
-            ColorConsole.WriteLineGreen($"PlaybackActor PreRestart [reason:{reason}]");
+            ColorConsole.WriteLineGreen($"UserActor PreRestart [reason:{reason}]");
             base.PreRestart(reason, message);
         }
 
         protected override void PostRestart(Exception reason)
         {
-            ColorConsole.WriteLineGreen($"PlaybackActor PostRestart [reason:{reason}]");
+            ColorConsole.WriteLineGreen($"UserActor PostRestart [reason:{reason}]");
             base.PostRestart(reason);
         }
+
     }
 }

@@ -26,5 +26,10 @@ namespace SwitchableBehaviors
         {
             WriteMessage(message, ConsoleColor.Red);
         }
+
+        public static void WriteLineCyan(string message)
+        {
+            WriteMessage(message, ConsoleColor.Cyan);
+        }
     }
 }
