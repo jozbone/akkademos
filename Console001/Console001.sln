@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console001", "Console001\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifecycleEventsConsole", "LifecycleEventsConsole\LifecycleEventsConsole.csproj", "{0311D4D2-90C2-4C48-9143-BF4432785E6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwitchableBehaviors", "SwitchableBehaviors\SwitchableBehaviors.csproj", "{C11DB47A-22B8-4FCC-B140-3ED2188B7486}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0311D4D2-90C2-4C48-9143-BF4432785E6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0311D4D2-90C2-4C48-9143-BF4432785E6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0311D4D2-90C2-4C48-9143-BF4432785E6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C11DB47A-22B8-4FCC-B140-3ED2188B7486}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C11DB47A-22B8-4FCC-B140-3ED2188B7486}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C11DB47A-22B8-4FCC-B140-3ED2188B7486}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C11DB47A-22B8-4FCC-B140-3ED2188B7486}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
