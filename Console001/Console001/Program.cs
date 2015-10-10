@@ -24,6 +24,7 @@ namespace Console001
 
             Console.ReadLine();
             MovieStreamingActorSystem.Shutdown();
+            MovieStreamingActorSystem.AwaitTermination();
         }
     }
 }
