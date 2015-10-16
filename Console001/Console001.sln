@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwitchableBehaviors_After",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwtichableBehaviors_Before", "SwtichableBehaviors_Before\SwtichableBehaviors_Before.csproj", "{39D631AF-D802-4A59-929C-BA09E90E0875}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupervisorHierarchy", "SupervisorHierarchy\SupervisorHierarchy.csproj", "{EABC764E-2736-409C-9450-6BC6A894F678}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{39D631AF-D802-4A59-929C-BA09E90E0875}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39D631AF-D802-4A59-929C-BA09E90E0875}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39D631AF-D802-4A59-929C-BA09E90E0875}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EABC764E-2736-409C-9450-6BC6A894F678}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EABC764E-2736-409C-9450-6BC6A894F678}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EABC764E-2736-409C-9450-6BC6A894F678}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EABC764E-2736-409C-9450-6BC6A894F678}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
