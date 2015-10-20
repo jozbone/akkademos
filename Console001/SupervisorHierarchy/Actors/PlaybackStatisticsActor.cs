@@ -3,8 +3,15 @@ using Akka.Actor;
 
 namespace SupervisorHierarchy.Actors
 {
+    using System.Threading.Tasks;
+
     public class PlaybackStatisticsActor : ReceiveActor
     {
+        public PlaybackStatisticsActor()
+        {
+            Context.ActorOf(Props.Create<MoviePlayCounterActor>(), "MoviePlayCounter");
+        }
+            
         #region Lifecycle hooks
 
         protected override void PreStart()
@@ -30,6 +37,5 @@ namespace SupervisorHierarchy.Actors
         }
 
         #endregion
-
     }
 }

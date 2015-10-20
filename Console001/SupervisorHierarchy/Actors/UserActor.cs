@@ -35,6 +35,8 @@ namespace SupervisorHierarchy.Actors
         {
             _currentlyWatching = title;
             ColorConsole.WriteLineYellow($"User is currently watching '{_currentlyWatching}'.");
+            Context.ActorSelection("/user/Playback/PlaybackStatistics/MoviePlayCounter")
+                .Tell(new IncrementPlayCountMessage(title));
             Become(Playing);
         }
 
@@ -45,6 +47,7 @@ namespace SupervisorHierarchy.Actors
             Become(Stopped);
         }
 
+        #region lifecycle events
         protected override void PreStart()
         {
             ColorConsole.WriteLineYellow($"UserActor '{UserId}' PreStart");
@@ -66,6 +69,6 @@ namespace SupervisorHierarchy.Actors
             ColorConsole.WriteLineYellow($"UserActor '{UserId}' PostRestart [reason:{reason}]");
             base.PostRestart(reason);
         }
-
+        #endregion
     }
 }

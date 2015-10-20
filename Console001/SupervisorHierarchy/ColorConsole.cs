@@ -41,5 +41,10 @@ namespace SupervisorHierarchy
         {
             WriteMessage(message, ConsoleColor.White);
         }
+
+        public static void WriteMagenta(string message)
+        {
+            WriteMessage(message, ConsoleColor.Magenta);
+        }
     }
 }
