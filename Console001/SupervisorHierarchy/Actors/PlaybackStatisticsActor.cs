@@ -11,7 +11,27 @@ namespace SupervisorHierarchy.Actors
         {
             Context.ActorOf(Props.Create<MoviePlayCounterActor>(), "MoviePlayCounter");
         }
-            
+
+        protected override SupervisorStrategy SupervisorStrategy()
+        {
+            return new OneForOneStrategy(
+                exception =>
+                    {
+                        if (exception is SimulatedCorruptStateException)
+                        {
+                            return Directive.Restart;
+                        }
+
+                        if (exception is SimulatedTerribleMovieException)
+                        {
+                            return Directive.Resume;
+                        }
+
+                        return Directive.Restart;
+                    }
+                );
+        }
+
         #region Lifecycle hooks
 
         protected override void PreStart()

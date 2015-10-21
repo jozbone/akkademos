@@ -1,5 +1,6 @@
 ﻿namespace SupervisorHierarchy.Actors
 {
+    using System;
     using System.Collections.Generic;
 
     using Akka.Actor;
@@ -27,8 +28,26 @@
                 this._moviePlayCounts.Add(message.MovieTitle, 1);
             }
 
+            if (this._moviePlayCounts[message.MovieTitle] > 3)
+            {
+                throw new SimulatedCorruptStateException();
+            }
+
+            if (message.MovieTitle.Equals("Partial Recoil", StringComparison.OrdinalIgnoreCase))
+            {
+                throw new SimulatedTerribleMovieException();
+            }
+
             ColorConsole.WriteMagenta(
                 $"MoviePlayCounterActor '{message.MovieTitle}' has been watched {this._moviePlayCounts[message.MovieTitle]}");
         }
+    }
+
+    public class SimulatedTerribleMovieException : Exception
+    {
+    }
+
+    public class SimulatedCorruptStateException : Exception
+    {
     }
 }
